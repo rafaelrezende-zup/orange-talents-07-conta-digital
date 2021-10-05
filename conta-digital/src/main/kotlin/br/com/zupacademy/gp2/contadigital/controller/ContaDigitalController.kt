@@ -30,4 +30,22 @@ class ContaDigitalController (
         conta.creditar(request.valor)
         return HttpResponse.ok()
     }
+
+    @Post("/debitar")
+    @Transactional
+    fun debitar(@PathVariable("numero") numeroConta: String,@Valid @Body request: OperacaoRequest): HttpResponse<Any?> {
+
+        val possivelConta = repository.findByNumeroConta(numeroConta)
+        if(possivelConta.isEmpty){
+            return HttpResponse.notFound()
+        }
+
+        val conta = possivelConta.get()
+        try {
+            conta.debitar(request.valor)
+        }catch (e: IllegalArgumentException){
+            return HttpResponse.badRequest(e.message)
+        }
+        return HttpResponse.ok()
+    }
 }

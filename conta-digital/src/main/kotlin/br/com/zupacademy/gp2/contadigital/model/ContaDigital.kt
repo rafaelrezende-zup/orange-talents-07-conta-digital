@@ -24,4 +24,14 @@ class ContaDigital (
         }
         this.saldo += valor
     }
+
+    fun debitar(valor: BigDecimal){
+        if(valor <= BigDecimal.ZERO){
+            throw IllegalArgumentException("valor deve ser positivo.")
+        }
+        if(valor > saldo){
+            throw IllegalArgumentException("valor a ser debitado é maior que o saldo.")
+        }
+        this.saldo -= valor
+    }
 }
