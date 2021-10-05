@@ -20,7 +20,7 @@ micronaut {
     testRuntime("junit5")
     processing {
         incremental(true)
-        annotations("br.com.zupacademy.gp2.*")
+        annotations("br.com.zupacademy.gp2.contadigital.*")
     }
 }
 
