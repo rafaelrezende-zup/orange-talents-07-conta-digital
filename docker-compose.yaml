@@ -1,4 +1,5 @@
 version: '3.1'
+
 services:
   zookeeper:
     image: "confluentinc/cp-zookeeper:5.2.1"
@@ -6,6 +7,7 @@ services:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
       ZOOKEEPER_SYNC_LIMIT: 2
+
   kafka:
     image: "confluentinc/cp-kafka:5.2.1"
     ports:
@@ -19,6 +21,7 @@ services:
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: "1"
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+
   conta-digital-db:
     image: postgres
     volumes:
@@ -30,5 +33,19 @@ services:
       POSTGRES_PASSWORD: 12345
       POSTGRES_USER: contadigital
       POSTGRES_DB: contadigital
+
+  extrato-db:
+    image: 'postgres:9.6-alpine'
+    volumes:
+      - postgres-extrato:/var/lib/postgresql/data
+    ports:
+      - 5433:5432
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: transacao
+      POSTGRES_HOST: postgres
+
 volumes:
   conta-digital-db-volume:
+  postgres-extrato:
