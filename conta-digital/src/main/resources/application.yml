@@ -1,6 +1,8 @@
 micronaut:
   application:
     name: contaDigital
+  server.port: 8081
+
 datasources:
   default:
     url: jdbc:postgresql://${DB_HOST}/${DB_NAME}
@@ -9,4 +11,5 @@ datasources:
     password: ${DB_PASSWORD}
     schema-generate: CREATE_DROP
     dialect: POSTGRES
+
 jpa.default.properties.hibernate.hbm2ddl.auto: update

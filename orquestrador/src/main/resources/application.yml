@@ -1,0 +1,14 @@
+micronaut:
+  application:
+    name: orquestrador
+kafka.bootstrap.servers: localhost:9092
+
+services:
+  kafka:
+    topic:
+      trasacao: "transacao"
+
+  contadigital:
+    baseUri: "localhost:8081/contadigital/{numeroConta}"
+    debita.urn: "/creditar"
+    credita.urn: "/debitar"
