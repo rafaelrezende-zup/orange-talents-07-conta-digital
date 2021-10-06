@@ -1,4 +1,4 @@
-package br.com.zupacademy.gp2
+package br.com.zupacademy.gp2.contadigital
 
 import io.micronaut.runtime.Micronaut.*
 fun main(args: Array<String>) {

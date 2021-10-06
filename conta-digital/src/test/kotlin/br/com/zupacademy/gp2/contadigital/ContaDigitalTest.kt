@@ -1,4 +1,4 @@
-package br.com.zupacademy.gp2
+package br.com.zupacademy.gp2.contadigital
 import io.micronaut.runtime.EmbeddedApplication
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest
 import org.junit.jupiter.api.Assertions

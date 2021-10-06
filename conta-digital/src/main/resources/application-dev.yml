@@ -9,4 +9,4 @@ datasources:
 jpa.default.properties.hibernate:
   hbm2ddl.auto: update
   show_sql: true
-  ormat_sql: true
+  format_sql: true

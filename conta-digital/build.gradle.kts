@@ -7,6 +7,10 @@ plugins {
     id("org.jetbrains.kotlin.plugin.jpa") version "1.5.21"
 }
 
+allOpen{
+    annotation("io.micronaut.http.annotation.Controller")
+}
+
 version = "0.1"
 group = "br.com.zupacademy.gp2"
 
@@ -20,7 +24,7 @@ micronaut {
     testRuntime("junit5")
     processing {
         incremental(true)
-        annotations("br.com.zupacademy.gp2.*")
+        annotations("br.com.zupacademy.gp2.contadigital.*")
     }
 }
 
