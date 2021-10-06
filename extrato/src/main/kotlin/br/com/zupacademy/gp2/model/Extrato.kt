@@ -1,11 +1,9 @@
 package br.com.zupacademy.gp2.model
 
+import br.com.zupacademy.gp2.controller.Operacao
 import java.math.BigDecimal
 import java.time.LocalDateTime
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
-import javax.persistence.Id
+import javax.persistence.*
 import javax.validation.constraints.FutureOrPresent
 import javax.validation.constraints.NotBlank
 import javax.validation.constraints.Positive
@@ -13,7 +11,8 @@ import javax.validation.constraints.Positive
 @Entity
 class Extrato (
     @field: NotBlank
-    val operacao: String?,
+    @field: Enumerated(EnumType.STRING)
+    val operacao: Operacao?,
     @field: Positive
     val valor: BigDecimal?,
     @field: FutureOrPresent

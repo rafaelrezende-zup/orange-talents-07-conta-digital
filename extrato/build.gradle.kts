@@ -36,6 +36,8 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
 
+    implementation("io.micronaut.kafka:micronaut-kafka")
+
     annotationProcessor("io.micronaut.data:micronaut-data-processor")
 
     runtimeOnly("ch.qos.logback:logback-classic")

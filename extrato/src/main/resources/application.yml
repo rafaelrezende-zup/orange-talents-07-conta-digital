@@ -3,9 +3,9 @@ micronaut:
     pageable:
       max-page-size: 50
       default-page-size: 20
-
   application:
     name: extrato
+
 datasources:
   default:
     url: jdbc:postgresql://localhost:5433/transacao
@@ -13,4 +13,11 @@ datasources:
     username: admin
     password: admin
     dialect: POSTGRES
+
 jpa.default.properties.hibernate.hbm2ddl.auto: update
+
+kafka:
+  bootstrap:
+    servers: localhost:9092
+  topics:
+    transacao: transacao

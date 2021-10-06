@@ -29,7 +29,7 @@ class ExtratoController(@Inject val repository: ExtratoRepository) {
         val extratos = repository.findAllByContaOrderByDataDesc(contaId, pageable)
 
         val response = extratos.map{
-            TransacaoResponse(it.operacao,it.valor,it.data)
+            TransacaoResponse(it.operacao!!.name,it.valor,it.data)
         }
 
         return HttpResponse.ok(response)
