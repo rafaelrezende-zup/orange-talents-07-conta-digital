@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory
 import java.time.LocalDateTime
 import javax.validation.Valid
 
-@Controller("/api/v1/contaddigital/{numeroConta}")
+@Controller("/api/v1/contadigital/{numeroConta}")
 @Validated
 class TransacaoController(
         val contaDigitalClient: ContaDigitalClient,

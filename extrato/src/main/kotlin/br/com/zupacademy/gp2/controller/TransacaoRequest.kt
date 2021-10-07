@@ -8,6 +8,7 @@ import javax.persistence.EnumType
 import javax.persistence.Enumerated
 import javax.validation.constraints.FutureOrPresent
 import javax.validation.constraints.NotBlank
+import javax.validation.constraints.NotNull
 import javax.validation.constraints.Positive
 
 @Introspected
@@ -17,10 +18,10 @@ data class TransacaoRequest(
     val operacao: Operacao?,
     @field: Positive
     val valor: BigDecimal?,
-    @field: FutureOrPresent
+    @field: NotNull
     val data: LocalDateTime?,
     @field: NotBlank
-    val cliente: String?,
+    val clienteId: String?,
     @field: NotBlank
     val conta: String?
 ) {
@@ -29,7 +30,7 @@ data class TransacaoRequest(
             operacao,
             valor,
             data,
-            cliente,
+            clienteId,
             conta
         )
     }

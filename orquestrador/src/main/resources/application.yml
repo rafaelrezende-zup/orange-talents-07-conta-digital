@@ -1,6 +1,8 @@
 micronaut:
   application:
     name: orquestrador
+  server.port: 8082
+
 kafka.bootstrap.servers: localhost:9092
 
 services:
@@ -9,6 +11,6 @@ services:
       trasacao: "transacao"
 
   contadigital:
-    baseUri: "localhost:8081/contadigital/{numeroConta}"
-    debita.urn: "/creditar"
-    credita.urn: "/debitar"
+    baseUri: "http://localhost:8081/api/v1/contadigital/"
+    debita.urn: "{numeroConta}/creditar"
+    credita.urn: "{numeroConta}/debitar"

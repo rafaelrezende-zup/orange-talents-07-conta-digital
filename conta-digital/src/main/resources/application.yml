@@ -5,10 +5,10 @@ micronaut:
 
 datasources:
   default:
-    url: jdbc:postgresql://${DB_HOST}/${DB_NAME}
+    url: jdbc:postgresql://localhost:5432/contadigital
     driverClassName: org.postgresql.Driver
-    username: ${DB_USER}
-    password: ${DB_PASSWORD}
+    username: contadigital
+    password: 12345
     schema-generate: CREATE_DROP
     dialect: POSTGRES
 

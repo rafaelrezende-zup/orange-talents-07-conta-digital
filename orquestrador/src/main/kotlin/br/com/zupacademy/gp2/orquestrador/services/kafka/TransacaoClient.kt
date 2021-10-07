@@ -7,6 +7,6 @@ import io.micronaut.messaging.annotation.MessageBody
 @KafkaClient
 interface TransacaoClient {
 
-    @Topic("\$services.kafka.topic.trasacao")
+    @Topic("\${services.kafka.topic.trasacao}")
     fun sendTrasacao(@MessageBody operacaoProducer: TransacaoProducer)
 }

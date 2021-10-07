@@ -6,11 +6,11 @@ import io.micronaut.http.annotation.Post
 import io.micronaut.http.client.annotation.Client
 import javax.validation.Valid
 
-@Client("\$services.contadigital.baseUri")
+@Client("\${services.contadigital.baseUri}")
 interface ContaDigitalClient {
-    @Post("\$services.contadigital.credita.urn")
+    @Post("\${services.contadigital.credita.urn}")
     fun credita(@PathVariable numeroConta: String, @Body @Valid operacaoRequest: OperacaoRequest)
 
-    @Post("\$services.contadigital.debita.urn")
+    @Post("\${services.contadigital.debita.urn}")
     fun debita(@PathVariable numeroConta: String, @Body @Valid operacaoRequest: OperacaoRequest)
 }
