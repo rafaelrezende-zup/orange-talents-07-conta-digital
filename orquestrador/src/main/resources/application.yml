@@ -9,6 +9,7 @@ services:
   kafka:
     topic:
       trasacao: "transacao"
+      email: "email"
 
   contadigital:
     baseUri: "http://localhost:8081/api/v1/contadigital/"

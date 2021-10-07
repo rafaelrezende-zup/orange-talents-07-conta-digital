@@ -1,6 +1,7 @@
 micronaut:
   application:
     name: email
+  server.port: 8083
 
 datasources:
   default:

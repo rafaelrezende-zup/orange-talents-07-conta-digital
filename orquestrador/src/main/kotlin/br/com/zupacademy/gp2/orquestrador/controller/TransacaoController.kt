@@ -3,6 +3,7 @@ package br.com.zupacademy.gp2.orquestrador.controller
 import br.com.zupacademy.gp2.orquestrador.services.kafka.TransacaoClient
 import br.com.zupacademy.gp2.orquestrador.services.contadigital.ContaDigitalClient
 import br.com.zupacademy.gp2.orquestrador.services.contadigital.OperacaoRequest
+import br.com.zupacademy.gp2.orquestrador.services.kafka.EmailClient
 import br.com.zupacademy.gp2.orquestrador.services.kafka.Operacoes
 import br.com.zupacademy.gp2.orquestrador.services.kafka.TransacaoProducer
 import io.micronaut.http.HttpResponse
@@ -19,7 +20,8 @@ import javax.validation.Valid
 @Validated
 class TransacaoController(
         val contaDigitalClient: ContaDigitalClient,
-        val transacaoClient: TransacaoClient
+        val transacaoClient: TransacaoClient,
+        val emailClient: EmailClient
 )
 {
 
@@ -44,6 +46,9 @@ class TransacaoController(
                             clienteId = transacaoRequest.clienteId,
                             conta = numeroConta
                     )
+            )
+            this.emailClient.sendEmail(
+                "Email enviado para ${transacaoRequest.clienteId} da conta $numeroConta"
             )
 
             return HttpResponse.ok()
@@ -71,6 +76,9 @@ class TransacaoController(
                             clienteId = transacaoRequest.clienteId,
                             conta = numeroConta
                     )
+            )
+            this.emailClient.sendEmail(
+                "Email enviado para ${transacaoRequest.clienteId} da conta $numeroConta"
             )
 
             return HttpResponse.ok()
